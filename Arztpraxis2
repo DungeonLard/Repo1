@@ -1,0 +1,63 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+public class Arztpraxis {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
+		
+		//String[] liste = new String[20];
+		String[] liste = {null,"b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s", null};  
+		int eingabe = 0;
+		
+		do {
+		
+			System.out.println("1 = Patient meldet sich an der Anmeldung an\n"
+				+ "2 = Überprüfen, ob ein Patient angemeldet ist\n"
+				+ "3 = Gibt aus, wie viele Patienten im Moment angemeldet sind\n"
+				+ "4 = Gibt eine Liste der Patienten im Wartezimmer aus\n"
+				+ "7 = Der nächste Patient wird aufgerufen.\n"
+				+ "9 = Programm beenden");
+		
+		String ein = r.readLine();
+		
+		eingabe = Integer.parseInt(ein);
+		
+		switch(eingabe) {
+		case 1:{
+			int zählenVoll = 0;
+			for(int i = 0 ; i < liste.length ; i ++) if(liste[i] != null) zählenVoll++; // kontrolle ob die liste schon voll
+			if(zählenVoll < 20) {
+				for(int j = 0 ; j < liste.length ; j++) {
+					if(liste[j] == null) {
+						liste[j] = liste[j + 1];
+						liste[j + 1 ] = null;//liste um eins nach links rücken
+					}
+				}
+					System.out.println("Geben Sie den Namen ein: ");
+					System.out.println(Arrays.toString(liste));
+					ein = r.readLine();
+					String name = ein;
+					boolean nameNeu = false;
+					for(int k = 0 ; k < liste.length ; k++) {
+						if(liste[k] == null) {							
+							liste[k] = name;
+							nameNeu = true;
+						} if (nameNeu) break;
+					}
+					
+				}
+			} else {
+				System.out.println("Keine Plätze mehr");
+			} 
+		}
+		break;
+		}
+		
+	
+		while(eingabe != 9);
+	}
+
+}
