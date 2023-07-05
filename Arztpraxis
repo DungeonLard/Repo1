@@ -1,7 +1,8 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
+
+import javax.swing.JOptionPane;
 
 public class Arztpraxis {
 
@@ -9,24 +10,28 @@ public class Arztpraxis {
 		BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
 
 		// String[] liste = new String[20];
-		//String[] liste = { null, "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r",
-			//	"s", null };
-		String[] liste = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r",
-				"s", "t" };
+		// String[] liste = { null, "b", "c", "d", "e", "f", "g", "h", "i", "j", "k",
+		// "l", "m", "n", "o", "p", "q", "r",
+		// "s", null };
+		String[] liste = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r",
+				"s", null };
 		int eingabe = 0;
 
 		do {
 
-			System.out.println(
-					"1 = Patient meldet sich an der Anmeldung an\n" + "2 = Überprüfen, ob ein Patient angemeldet ist\n"
-							+ "3 = Gibt aus, wie viele Patienten im Moment angemeldet sind\n"
-							+ "4 = Gibt eine Liste der Patienten im Wartezimmer aus\n"
-							+ "7 = Der nächste Patient wird aufgerufen.\n" + "9 = Programm beenden");
+			System.out.println("\n" + "1 = Patient meldet sich an der Anmeldung an\n"
+					+ "2 = Überprüfen, ob ein Patient angemeldet ist\n"
+					+ "3 = Gibt aus, wie viele Patienten im Moment angemeldet sind\n"
+					+ "4 = Gibt eine Liste der Patienten im Wartezimmer aus\n"
+					+ "7 = Der nächste Patient wird aufgerufen.\n" + "9 = Programm beenden");
 
 			String ein = r.readLine();
-
-			eingabe = Integer.parseInt(ein);
-
+			try {
+				eingabe = Integer.parseInt(ein);
+			} catch (Exception ex) {
+				System.out.println("Es sind nur die angezeigten Zahlen zugelassen");
+				JOptionPane.showMessageDialog(null, "Bitte geben Sie nur die angezeigten Zahlen ein");
+			}
 			switch (eingabe) {
 			case 1: {
 				int zählenVoll = 0;
@@ -41,7 +46,7 @@ public class Arztpraxis {
 						}
 					}
 					System.out.println("Geben Sie den Namen ein: "); // neuen Namen eintragen
-					System.out.println(Arrays.toString(liste));
+					// System.out.println(Arrays.toString(liste));
 					ein = r.readLine();
 					String name = ein;
 					boolean nameNeu = false;
@@ -51,7 +56,7 @@ public class Arztpraxis {
 							nameNeu = true;
 						}
 						if (nameNeu) {
-							System.out.println(Arrays.toString(liste));
+							// System.out.println(Arrays.toString(liste));
 							break;
 						}
 					}
@@ -62,7 +67,54 @@ public class Arztpraxis {
 			}
 				break;
 			case 2: {
-				
+				System.out.println("Geben Sie den gesuchten Namen an:");
+				ein = r.readLine();
+				String nameSuch = ein;
+				boolean gefunden = false;
+				for (int l = 0; l < liste.length; l++) { // liste nach dem namen durchsuchen
+					String Vergleich = liste[l];
+					if (nameSuch.toLowerCase().equals(Vergleich.toLowerCase()))
+						gefunden = true;
+				}
+				System.out.println(
+						(gefunden) ? (nameSuch + " ist in der Liste.") : (nameSuch + " ist nicht in der Liste.")); // wird
+																													// ausgeführt
+			}
+				break;
+			case 3: {
+				int angemeldPat = 0;
+				for (int m = 0; m < liste.length; m++) {
+					if (liste[m] != null)
+						angemeldPat++;
+				}
+				System.out.println("Es sind " + angemeldPat + " Patienten in der Warteliste.");
+			}
+				break;
+			case 4: {
+				StringBuilder PatList = new StringBuilder();
+				for (int n = 1; n < liste.length; n++) {
+					PatList.append("<html><table border='1>");	
+					if (liste[n] != null)
+						System.out.println(n + ".: " + liste[n]);
+						PatList.append(".: " + liste[n]);
+				}
+				PatList.append("</table></html>");
+				JOptionPane.showMessageDialog(null, PatList);
+			}
+				break;
+			case 7: {
+				System.out.println(liste[0] + " Bitte");
+				for (int o = 0; o < liste.length; o++) {
+					if (liste[o] == null) {
+						liste[o] = liste[o + 1];
+						liste[o + 1] = null;
+					}
+				}
+			}
+				break;
+			case 9: {
+				System.out.println("Auf Wiedersehen");
+				System.exit(0);
 			}
 			}
 
