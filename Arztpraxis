@@ -9,8 +9,10 @@ public class Arztpraxis {
 		BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
 
 		// String[] liste = new String[20];
-		String[] liste = { null, "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r",
-				"s", null };
+		//String[] liste = { null, "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r",
+			//	"s", null };
+		String[] liste = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r",
+				"s", "t" };
 		int eingabe = 0;
 
 		do {
@@ -48,9 +50,10 @@ public class Arztpraxis {
 							liste[k] = name;
 							nameNeu = true;
 						}
-						if (nameNeu)
+						if (nameNeu) {
 							System.out.println(Arrays.toString(liste));
 							break;
+						}
 					}
 
 				} else {
@@ -58,6 +61,9 @@ public class Arztpraxis {
 				}
 			}
 				break;
+			case 2: {
+				
+			}
 			}
 
 		} while (eingabe != 9);
