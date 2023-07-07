@@ -122,7 +122,38 @@ public class Exercises_150 {
 //		}
 		
 		//Exercise 15
-		Scanner hh = new Scanner(System.in);
+//		Scanner hh = new Scanner(System.in);
+//		System.out.println("Erste: ");
+//		String str1 = hh.next();
+//		System.out.println("Zweite: ");
+//		String str2 = hh.next();
+//		String temp = "";//zwischenspeicher
+//		System.out.println("Vor dem swappen a ist \"" + str1 + "\" und b ist \"" + str2 + "\".");
+//		temp = str1;
+//		str1 = str2;
+//		str2 = temp;
+//		System.out.println("Nach dem swappen a ist \"" + str1 + "\" und b ist \"" + str2 + "\".");
+		
+		//Exercise 16
+//		System.out.println(" +\"\"\"\"\"+");
+//		System.out.println("[| o o |]");
+//		System.out.println(" |  ^  | ");
+//		System.out.println(" | '_' | ");
+//		System.out.println(" +-----+ ");
+		
+		//Exercise 16b mit Array
+//		String[] myArray = new String[5];
+//		myArray[0] = " +\"\"\"\"\"+";
+//		myArray[1] = "[| o o |]";
+//		myArray[2] = " |  ^  | ";
+//		myArray[3] = " | '_' | ";
+//		myArray[4] = " +-----+ ";
+//		for( int i = 0 ; i < 5 ; i++)
+//			System.out.println(myArray[i]);
+		
+		//Exercise 17
+		
+		
 		
 	}
 
