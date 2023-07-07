@@ -72,16 +72,58 @@ public class Exercises_150 {
 //		sc.close();
 		
 		//Exercise 12
-		Scanner sc = new Scanner(System.in);
-		System.out.println("1. Zahl: ");
-		double num1 = sc.nextDouble();
-		System.out.println("2. Zahl: ");
-		double num2 = sc.nextDouble();
-		System.out.println("3. Zahl: ");
-		double num3 = sc.nextDouble();
-		sc.close();
-		System.out.println("Der Durchschnitt lautet: " + (num1 + num2 + num3) / 3);
+//		Scanner sc = new Scanner(System.in);
+//		System.out.println("1. Zahl: ");
+//		double num1 = sc.nextDouble();
+//		System.out.println("2. Zahl: ");
+//		double num2 = sc.nextDouble();
+//		System.out.println("3. Zahl: ");
+//		double num3 = sc.nextDouble();
+//		sc.close();
+//		System.out.println("Der Durchschnitt lautet: " + (num1 + num2 + num3) / 3);
+		
+		//Exercise 12b für beliebig viele Zahlen
+//		double num = 0;//Variable für den eingegeben Wert der Zahl, wird zur Summe dieser Zahlen
+//		double x = 1; //Zähler der eingegebenen Zahlen
+//		Scanner tr = new Scanner(System.in);
+//		System.out.println("Input the number of numbers you want to calculate the average: ");
+//		int n = tr.nextInt(); // Anzahl der Zahlen die eingegeben werden sollen
+//		while (x <= n) { // Vergleich zwischen der Anzahl der eingegebenen Zahlen und der vorgegebenen Anzahl
+//			System.out.println("Input number " + "(" + (int) x +")" + ":");
+//			num += tr.nextInt();//Zahl wird zu der Summe dazuaddiert
+//			x += 1;
+//		}
+//		double avgn = (num / n);
+//		
+//		System.out.println("Average:" + avgn);
+//		tr.close();
+		
+		//Exercise 13
+//		Scanner pk = new Scanner(System.in);
+//		System.out.println("Width: ");
+//		double width = pk.nextDouble();
+//		System.out.println("Height: ");
+//		double height = pk.nextDouble();
+//		System.out.println("Area is " + width + " * " + height + " = " + (width * height) +
+//						   "\nPerimeter is " + "2 " + " * " + "("+ width + " + " + height + ")" + " = " + (2 * (width + height)));
+//		System.out.printf("Perimeter is 2 * (%.2f + %.2f) = %.2f \n" , width, height, 2 * (width + height));
+//		System.out.printf("Area is %.2f * %.2f = %.2f \n", width, height, width * height );
+//		pk.close();
+		
+		//Exercise 14
+//		String reihe1 = "* * * * * * ==================================";
+//		String reihe2 = " * * * * *  ==================================";
+//		String reihe3 = "==============================================";
+//		for(int i = 1 ; i <= 9 ; i++) {
+//			System.out.println((i % 2 == 0 ) ? reihe2 : reihe1);
+//		}
+//		for(int i = 1 ; i <= 6 ; i++) {
+//			System.out.println(reihe3);
+//		}
+		
+		//Exercise 15
+		Scanner hh = new Scanner(System.in);
+		
 	}
 
 }
-
