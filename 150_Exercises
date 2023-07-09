@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.Arrays;
+import java.lang.Math;
 
 public class Exercises_150 {
 
@@ -152,9 +154,60 @@ public class Exercises_150 {
 //			System.out.println(myArray[i]);
 		
 		//Exercise 17
-		
+		Scanner er = new Scanner(System.in);
+        System.out.println("Erste binäre Zahl: ");
+        int num1 = er.nextInt();
+        System.out.println("zweite binäre Zahl: ");
+        int num2 = er.nextInt();
+		er.close();
+
+        int länge1 = 0;
+		int länge2 = 0;
+		int temp1 = 1;
+		int temp2 = 1;
+
+		while (temp1 < num1) {
+			länge1++;
+			temp1 *= 10;
+		}
+		while (temp2 < num2) {
+			länge2++;
+			temp2 *= 10;
+		}
+		System.out.println(länge1);
+		System.out.println(länge2);
+
+		int[] zahl1 = new int[länge1];
+		zahl1[0] = 1;
+		int[] matize1 = new int[länge1];
+		for(int i = 0.1, j = 1 ; j < länge1; j++){
+			i *= 10;
+			matrize1[länge1 - j] = i;
+		}
+		int[] zahl2 = new int[länge2];
+		zahl2[0] = 1;
+		int[] matize2 = new int[länge2];
+		for(int i = 0.1, j = 1 ; j < länge2; j++){
+			i *= 10;
+			matrize2[länge2 - j] = i;
+		}
+
+		for(int i = länge1, j = 0 ; i > 0 ; i-- , j++){
+				if(num1 - Math.power(10, i) < Math.power(10,i-1)) {
+					zahl1[j] = 0;
+		} else zahl1[j] = 1;
 		
 		
 	}
+		for(int i = länge2, j = 0 ; i > 0 ; i-- , j++){
+				if(num2 - Math.power(10, i) < Math.power(10,i-1)) {
+					zahl2[j] = 0;
+		} else zahl2[j] = 1;
+		
+		
+	}
+	System.out.println(Arrays.toString(zahl1));
+	System.out.println(Arrays.toString(zahl2));	
+}	
 
 }
