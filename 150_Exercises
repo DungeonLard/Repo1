@@ -157,7 +157,7 @@ public class Exercises_150 {
 		Scanner er = new Scanner(System.in);
         System.out.println("Erste binäre Zahl: ");
         int num1 = er.nextInt();
-        System.out.println("zweite binäre Zahl: ");
+        System.out.println("Zweite binäre Zahl: ");
         int num2 = er.nextInt();
 		er.close();
 
@@ -166,7 +166,7 @@ public class Exercises_150 {
 		int temp1 = 1;
 		int temp2 = 1;
 
-		while (temp1 < num1) {
+		while (temp1 < num1) {			//Länger der binären Zahlen bestimmen
 			länge1++;
 			temp1 *= 10;
 		}
@@ -177,37 +177,74 @@ public class Exercises_150 {
 		System.out.println(länge1);
 		System.out.println(länge2);
 
-		int[] zahl1 = new int[länge1];
+		int[] zahl1 = new int[länge1]; //das array das die erste zahl darstellen soll
 		zahl1[0] = 1;
-		int[] matize1 = new int[länge1];
-		for(int i = 0.1, j = 1 ; j < länge1; j++){
-			i *= 10;
-			matrize1[länge1 - j] = i;
+		int[] matrize1 = new int[länge1]; //das exponentielle array das ich zur umwandlung brauche
+		int zähler1M = 1;
+		int eintrag1 = 1;
+		while(zähler1M <= länge1 - 1) {
+			matrize1[länge1 - zähler1M] = eintrag1; 
+			zähler1M ++;
+			eintrag1 *= 10;
 		}
+		matrize1[länge1 - zähler1M] = eintrag1;
+		
 		int[] zahl2 = new int[länge2];
 		zahl2[0] = 1;
-		int[] matize2 = new int[länge2];
-		for(int i = 0.1, j = 1 ; j < länge2; j++){
-			i *= 10;
-			matrize2[länge2 - j] = i;
+		int[] matrize2 = new int[länge2];
+		int zähler2M = 1;
+		int eintrag2 = 1;
+		while(zähler2M <= länge2 - 1) {
+			matrize2[länge2 - zähler2M] = eintrag2; 
+			zähler2M ++;
+			eintrag2 *= 10;
 		}
-
-		for(int i = länge1, j = 0 ; i > 0 ; i-- , j++){
-				if(num1 - Math.power(10, i) < Math.power(10,i-1)) {
-					zahl1[j] = 0;
-		} else zahl1[j] = 1;
+		matrize2[länge2 - zähler2M] = eintrag2; 
 		
+		for(int i = 0 ; i < länge1 ; i++) { //die zahlen als array aufschreiben
+			if(num1 < matrize1[i]) {
+				zahl1[i] = 0;
+			} else {
+				zahl1[i] = 1;
+				num1 -= matrize1[i];
+			}
+		}
 		
-	}
-		for(int i = länge2, j = 0 ; i > 0 ; i-- , j++){
-				if(num2 - Math.power(10, i) < Math.power(10,i-1)) {
-					zahl2[j] = 0;
-		} else zahl2[j] = 1;
+		for(int i = 0 ; i < länge2 ; i++) {
+			if(num2 < matrize2[i]) {
+				zahl2[i] = 0;
+			} else {
+				zahl2[i] = 1;
+				num2 -= matrize2[i];
+			}
+		}
 		
+		int[] ergebnis = new int[(länge1 > länge2 ? länge1 + 1 : länge2 + 1)]; //das ergebnisarray ist eine stelle grösser als das grösste zahlarray
 		
-	}
+		int rest = 0;
+		for (int i = 0 ; i < ergebnis.length - 1 ; i++) {
+			if((((zahl1.length - 1 - i > 0) ? zahl1[zahl1.length - 1 - i] : 0) + 
+					((zahl2.length - 1 - i > 0) ? zahl2[zahl2.length - 1 - i] : 0) + rest) == 2) {  //der additionsvorgang und die ausfüllung des ergebnisarray
+				ergebnis[ergebnis.length - 1 - i] = 0;
+				rest = 1;
+			} else if((((zahl1.length - 1 - i > 0) ? zahl1[zahl1.length - 1 - i] : 0) + 
+					((zahl2.length - 1 - i > 0) ? zahl2[zahl2.length - 1 - i] : 0) + rest) == 3) {
+				ergebnis[ergebnis.length - 1 - i] = 1;
+				rest = 1;
+			} else {
+				ergebnis[ergebnis.length - 1 - i] = (((zahl1.length - 1 - i > 0) ? zahl1[zahl1.length - 1 - i] : 0) + 
+						((zahl2.length - 1 - i > 0) ? zahl2[zahl2.length - 1 - i] : 0) + rest);
+				rest = 0;
+			}
+			
+		}
+		ergebnis[0] = rest;
+		
 	System.out.println(Arrays.toString(zahl1));
 	System.out.println(Arrays.toString(zahl2));	
+	//System.out.println(Arrays.toString(matrize1));	
+	//System.out.println(Arrays.toString(matrize2));	
+	System.out.println(Arrays.toString(ergebnis));	
 }	
 
 }
