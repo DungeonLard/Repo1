@@ -1,0 +1,91 @@
+--1.1
+
+--a
+
+SELECT Nachname
+FROM tbl_Adressen WHERE Nachname LIKE '%ee%';
+
+--
+
+SELECT Nachname
+FROM tbl_Adressen WHERE Nachname LIKE '%e%e%';
+
+--
+
+SELECT Nachname
+FROM tbl_Adressen WHERE Nachname LIKE '%e%e%';
+
+--
+
+SELECT Nachname
+FROM tbl_Adressen
+WHERE Nachname LIKE '%e%e%' AND LEN(Nachname) - LEN(REPLACE(Nachname, 'e', '')) = 2;
+
+--b
+
+SELECT Nachname, Geburtsdatum
+FROM tbl_Adressen
+where Geburtsdatum < '1970-03-01';
+
+--c
+
+SELECT AppartementNr, Größe
+FROM tbl_Appartements
+WHERE (Größe >= 22 AND Größe <= 30) OR (Größe >= 40 AND Größe <= 50);
+
+--d
+
+SELECT AppartementNr, Größe, MaxBelegung
+FROM tbl_Appartements
+WHERE ((Größe >= 22 AND Größe <= 30) OR (Größe >= 40 AND Größe <= 50))
+AND (MaxBelegung = 2 OR MaxBelegung = 4);
+
+--e
+
+SELECT Nachname, Ort
+FROM tbl_Adressen
+where Nachname Like 'B%'
+and (Ort = 'Hannover' or Ort = 'Kassel');
+
+--f
+
+SELECT AppartementNr, Größe/MaxBelegung as 'qm / person', Größe, MaxBelegung
+FROM tbl_Appartements;
+
+--g
+
+SELECT AppartementNr, Größe/MaxBelegung as 'qm / person', Größe, MaxBelegung
+FROM tbl_Appartements
+where Größe/MaxBelegung < 10;
+
+--1.2
+
+--a
+
+SELECT * FROM tbl_Adressen WHERE Ort IN ('Koblenz', 'Köln', 'Darmstadt');
+
+--b
+
+SELECT * FROM tbl_Adressen 
+WHERE Geburtsdatum BETWEEN '01.01.1970' AND '31.12.1982';
+
+--c
+
+SELECT AppartementNr, Größe
+FROM tbl_Appartements
+WHERE (Größe between 22 AND 30) OR (Größe between 40 AND 50);
+
+--d
+
+SELECT * FROM tbl_Adressen WHERE Ort like 'B%' or Ort like 'K%' or Ort like 'D%';
+
+--1.3
+
+SELECT * FROM tbl_Adressen 
+WHERE Geburtsdatum is NULL;
+
+--
+
+SELECT * 
+FROM tbl_Adressen
+WHERE Nachname = 'null';
