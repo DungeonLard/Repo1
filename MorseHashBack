@@ -1,0 +1,61 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Hashtable;
+
+public class MorseHashBack {
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
+        Hashtable<String, String> ABC = new Hashtable<>();
+        ABC.put("._", "A");
+        ABC.put("_...", "B");
+        ABC.put("_._.", "C");
+        ABC.put("_..", "D");
+        ABC.put(".", "E");
+        ABC.put(".._.", "F");
+        ABC.put("__.", "G");
+        ABC.put("....", "H");
+        ABC.put("..", "I");
+        ABC.put(".___", "J");
+        ABC.put("_._", "K");
+        ABC.put("._..", "L");
+        ABC.put("__", "M");
+        ABC.put("_.", "N");
+        ABC.put("___", "O");
+        ABC.put(".__.", "P");
+        ABC.put("__._", "Q");
+        ABC.put("._.", "R");
+        ABC.put("...", "S");
+        ABC.put("_", "T");
+        ABC.put(".._", "U");
+        ABC.put("..._", "V");
+        ABC.put(".__", "W");
+        ABC.put("_.._", "X");
+        ABC.put("_.__", "Y");
+        ABC.put("__..", "Z");
+        ABC.put("._._", "Ä");
+        ABC.put("___.", "Ö");
+        ABC.put("..__", "Ü");
+        ABC.put("...__..", "ß");
+        ABC.put("_____", "0");
+        ABC.put(".____", "1");
+        ABC.put("..___", "2");
+        ABC.put("...__", "3");
+        ABC.put("...._", "4");
+        ABC.put(".....", "5");
+        ABC.put("_....", "6");
+        ABC.put("__...", "7");
+        ABC.put("___..", "8");
+        ABC.put("____.", "9");
+
+        System.out.println("Geben Sie den Morsecode ein, den Sie in Text umwandeln möchten: ");
+        String code = r.readLine();
+        String[] bits = code.split(" ");
+        
+        for (String bit : bits) {
+        	System.out.print(ABC.get(bit));
+         }
+    }
+}
+//.. _._. .... _ ... ._. ._ .._ _._. .... _. . .__. ._ .._ ... .
