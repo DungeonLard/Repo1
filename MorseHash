@@ -1,0 +1,68 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Hashtable;
+
+public class MorseHash {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
+		Hashtable<String, String> ABC = new Hashtable<>();
+		ABC.put("A","._" );
+		ABC.put("B","_..." );
+		ABC.put("C","_._." );
+		ABC.put("D","_.." );
+		ABC.put("E","." );
+		ABC.put("F",".._." );
+		ABC.put("G","__." );
+		ABC.put("H","...." );
+		ABC.put("I",".." );
+		ABC.put("J",".___" );
+		ABC.put("K","_._" );
+		ABC.put("L","._.." );
+		ABC.put("M","__" );
+		ABC.put("N","_." );
+		ABC.put("O","___" );
+		ABC.put("P",".__." );
+		ABC.put("Q","__._" );
+		ABC.put("R","._." );
+		ABC.put("S","..." );
+		ABC.put("T","_" );
+		ABC.put("U",".._" );
+		ABC.put("V","..._" );
+		ABC.put("W",".__" );
+		ABC.put("X","_.._" );
+		ABC.put("Y","_.__" );
+		ABC.put("Z","__.." );
+		ABC.put("Ä","._._" );
+		ABC.put("Ö","___." );
+		ABC.put("Ü","..__" );
+		ABC.put("ß","...__.." );
+		ABC.put("0","_____" );
+		ABC.put("1",".____" );
+		ABC.put("2","..___" );
+		ABC.put("3","...__" );
+		ABC.put("4","...._" );
+		ABC.put("5","....." );
+		ABC.put("6","_...." );
+		ABC.put("7","__..." );
+		ABC.put("8","___.." );
+		ABC.put("9","____." );
+		
+		System.out.println("Geben Sie den Text ein, den Sie mit Morsealphabet ausgeben möchten: ");
+		String ein = r.readLine();
+		char[] satz = ein.toCharArray();
+		
+		for(char ch : satz) {
+			String character = String.valueOf(ch).toUpperCase();
+			//System.out.print(character == null ? " " : ABC.get(character) + " ");
+			if (character.equals(" ")) {
+                System.out.print("");
+            } else if (ABC.containsKey(character)) {
+                System.out.print(ABC.get(character) + " ");
+            }
+		}
+	
+	}
+
+}
